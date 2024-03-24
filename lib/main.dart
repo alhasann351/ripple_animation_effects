@@ -66,17 +66,28 @@ class _MyHomePageState extends State<MyHomePage>
           children: [
             Stack(
               alignment: Alignment.center,
-              children: _listRadius.map((radius) => Container(
-                width: radius * _animation.value,
-                height: radius * _animation.value,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.blue.withOpacity(1.0 - _animation.value),
-                ),
-              )).toList(),
+              children: [
+                buildMyContainer(_listRadius[0]),
+                buildMyContainer(_listRadius[1]),
+                buildMyContainer(_listRadius[2]),
+                buildMyContainer(_listRadius[3]),
+                buildMyContainer(_listRadius[4]),
+                const Icon(Icons.call, color: Colors.white,)
+              ],
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget buildMyContainer(radius){
+    return Container(
+      width: radius * _animation.value,
+      height: radius * _animation.value,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: Colors.blue.withOpacity(1.0 - _animation.value),
       ),
     );
   }
